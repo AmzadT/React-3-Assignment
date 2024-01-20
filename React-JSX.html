@@ -1,0 +1,70 @@
+<!-- Basic Level: Simple JSX Element -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX and Babel</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your JSX code here
+    var element = <p>Seize the day</p>;
+    ReactDOM.render(element, document.getElementById('root'));
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- Intermediate Level: Dynamic Content in JSX -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX and Babel</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your JSX code here
+    var dynamicText = "Seize the day";
+    var element2 = <p>{dynamicText}</p>;
+    ReactDOM.render(element2, document.getElementById('root'));
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- Advanced Level: Conditional Rendering in JSX -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX and Babel</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your JSX code here
+    var isSeizingTheDay = true;
+    var element3 = isSeizingTheDay ? <p>Seize the day</p> : <p>Make the most of it</p>;
+    ReactDOM.render(element3, document.getElementById('root'));
+  </script>
+</body>
+</html>

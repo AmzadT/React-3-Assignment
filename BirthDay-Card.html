@@ -1,0 +1,95 @@
+<!-- Include this HTML code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Birthday Card Component</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .birthday-card {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #007BFF;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- ... -->
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // React and ReactDOM imports
+    var { useState } = React;
+    var { render } = ReactDOM;
+
+    // BirthdayCard component
+    function BirthdayCard() {
+      // State for recipient's name and custom message
+      var [recipientName, setRecipientName] = useState("");
+      var [customMessage, setCustomMessage] = useState("");
+
+      // Function to handle input changes
+      var handleInputChange = (event, setterFunction) => {
+        setterFunction(event.target.value);
+      };
+
+      // Function to calculate background color based on name length
+      var calculateBackgroundColor = () => {
+        return recipientName.length > 5 ? "lightblue" : "lightgreen";
+      };
+
+      return (
+        <div className="birthday-card" style={{ backgroundColor: calculateBackgroundColor() }}>
+          <h2>Interactive Birthday Card</h2>
+          <label>
+            Recipient's Name:
+            <input type="text" value={recipientName} onChange={(e) => handleInputChange(e, setRecipientName)} />
+          </label>
+          <br />
+          <label>
+            Custom Message:
+            <input type="text" value={customMessage} onChange={(e) => handleInputChange(e, setCustomMessage)} />
+          </label>
+          <br />
+          <p>{`Happy Birthday, ${recipientName}! ${customMessage}`}</p>
+        </div>
+      );
+    }
+
+    // Rendering BirthdayCard component
+    render(<BirthdayCard />, document.getElementById('root'));
+  </script>
+</body>
+</html>

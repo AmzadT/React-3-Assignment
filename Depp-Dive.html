@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSX Showcase</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    div {
+      text-align: center;
+    }
+
+    h1 {
+      color: #007BFF;
+    }
+
+    p {
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #28A745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+
+  <script type="text/babel">
+    // JSXShowcase component
+    function JSXShowcase() {
+
+      // Example variables
+      var title = "JSX Showcase";
+      var isLoggedIn = true;
+
+      // Example function
+      var getCurrentTime = () => {
+        return new Date().toLocaleTimeString();
+      };
+
+      // Example array
+      var fruits = ['Apple', 'Banana', 'Orange'];
+
+      return (
+        <div>
+          {/* Element rendering */}
+          <h1>{title}</h1>
+          <p>This is a showcase of JSX features.</p>
+
+          {/* JavaScript integration */}
+          <p>Current time: {getCurrentTime()}</p>
+          <ul>
+            {fruits.map((fruit, index) => (
+              <li key={index}>{fruit}</li>
+            ))}
+          </ul>
+
+          {/* Conditional rendering */}
+          {isLoggedIn ? (
+            <p>User is logged in. Welcome!</p>
+          ) : (
+            <p>User is not logged in. Please log in.</p>
+          )}
+
+          {/* Button with conditional rendering */}
+          {isLoggedIn && <button onClick={() => alert("Button Clicked!")}>Click me</button>}
+        </div>
+      );
+    }
+
+    // Rendering JSXShowcase component
+    ReactDOM.render(<JSXShowcase />, document.getElementById('root'));
+  </script>
+</body>
+</html>

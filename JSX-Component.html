@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom JSX Components</title>
+
+  <style>
+    /* Add your CSS styles for the components here */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    header, main, footer {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+  </style>
+  
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // Header component
+    function Header() {
+      return (
+        <header>
+          <h1>Welcome to My App</h1>
+        </header>
+      );
+    }
+
+    // Content component
+    function Content() {
+      return (
+        <main>
+          <p>This is the main content of the app.</p>
+        </main>
+      );
+    }
+
+    // Footer component
+    function Footer({ dataFromHeader }) {
+      return (
+        <footer>
+          <p>Footer content. Received data from Header: {dataFromHeader}</p>
+        </footer>
+      );
+    }
+
+    // App component (parent component)
+    function App() {
+      const dataForFooter = "Data passed from App component";
+
+      return (
+        <div>
+          {/* Header component */}
+          <Header />
+
+          {/* Content component */}
+          <Content />
+
+          {/* Footer component with data passed from Header */}
+          <Footer dataFromHeader={dataForFooter} />
+        </div>
+      );
+    }
+
+    // Rendering the App component
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
+
+
+
+<!-- Observations on Babel Transpilation:
+
+JSX Syntax to JavaScript:
+
+Babel transforms JSX code into JavaScript by converting elements into " React.createElement " calls and handling props as object arguments. Nested components are represented through nested " createElement " structures, and the React import is added for proper functionality. -->

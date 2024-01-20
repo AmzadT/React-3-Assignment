@@ -1,0 +1,41 @@
+<!-- Include this HTML code -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Greeting Component</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    p {
+      font-size: 24px;
+      color: #333;
+    }
+  </style></head>
+<body>
+  <div id="root"></div>
+  <!-- ... -->
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // React and ReactDOM imports
+    var { useState, useEffect } = React;
+    var { render } = ReactDOM;
+
+    // Greeting component
+    function Greeting({ message, name }) {
+      return <p>{`${message}, ${name}`}</p>;
+    }
+
+    // Rendering Greeting component
+    render(<Greeting message="Hello" name="Alice" />, document.getElementById('root'));
+  </script>
+</body>
+</html>
